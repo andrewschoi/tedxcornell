@@ -1,0 +1,303 @@
+body {
+  font-family: sans-serif;
+}
+
+h1,h2 {
+  font-weight: bold;
+}
+
+h3, h4 {
+  color: #FFFFFF
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+ul li { 
+  list-style: none; 
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  color: black;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-style: none;
+  display: inline-block;
+  font-size: 18px;
+  max-height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  border: solid 0.5px
+}
+
+
+
+.logo {
+  border-style: none;
+  height: 100px;
+  width: 200px;
+  margin-left: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.apply {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("../assets/heroimage.jpg");
+  width: 100%;
+  height: 300px;
+  padding: 50px;
+}
+
+.featured {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px;
+  height: 550px
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  height: 450px
+}
+
+.eventLogo {
+  height: 90%;
+  width: 500px;
+  border-style: none;
+  top: 50%
+}
+
+.interests {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("../assets/heroimage.jpg");
+  width: 100%;
+  height: 400px;
+  padding: 50px;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 50px;
+}
+
+.intro {
+  height: 500px;
+  width: 100%
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  height: 250px;
+  width: 100%;
+}
+
+.halfScreen {
+  width: 50%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.col {
+  display: flex;
+  flex-direction: col;
+  justify-content: space-between
+}
+
+.container {
+  padding: 50px
+}
+
+.eventCard {
+  width: 100%
+}
+
+.eventImage {
+  height: 300px;
+  width: 300px;
+}
+
+.recommendText {
+  margin-top: 10px;
+  color: #FFFFFF
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  border-top: 4px solid red
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+.cardTitle {
+  max-width: 100%;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.cardSpeaker {
+  font-size: 1.2em;
+}
+
+.applyText {
+  font-size: 1.3em;
+  margin: 0px;
+  margin-top: 20px;
+}
+
+.memberName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  max-width: 175px;
+}
+
+.memberText {
+  font-size: 1rem;
+  max-width: 175px;
+}
+
+.memberContainer {
+  margin: 20px;
+}
+
+.tint {
+  background-color: #f6f5f5;
+}
+
+.memberPhoto {
+  height:250px;
+  width:175px
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.shrink {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+}
+@media screen and (max-width: 1300px) {
+  .shrink {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+  }
+  .featured {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+  }
+  .halfScreen {
+    width: 100%
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .team {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+  }
+
+  .rowContainer {
+    flex-direction: column;
+  }
+
+  .memberPhoto {
+    width: auto;
+    height: auto;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .footerCol {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footerCol > h5 {
+    font-weight: 900;
+    font-size: 1.3rem;
+  }
+
+  .footerCol > a > h6 {
+    margin-left: 10px;
+    font-size: 1.3rem;
+  }
+
+  button {
+    height: auto;
+    width: auto;
+    max-width: 200px;
+  }
+}
+
