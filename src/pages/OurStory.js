@@ -16,7 +16,7 @@ import alinapereyra from "../assets/alinapereyra.jpg";
 import jakezajkowski from "../assets/jakezajkowski.jpg";
 import juliathomson from "../assets/juliathomson.jpg";
 import jessischlewitt from "../assets/jessischlewitt.jpg";
-import paulinakoubok from "../assets/paulinakoubok.jpg";
+import paulinaklubok from "../assets/paulinaklubok.jpg";
 import lailarahbari from "../assets/lailarahbari.jpg";
 import bridgetsantos from "../assets/bridgetsantos.jpg";
 import andrewchoi from "../assets/andrewchoi.jpg";
@@ -168,7 +168,7 @@ export default function OurStory() {
             <Card className="border-0">
               <Card.Img
                 variant="top"
-                src={paulinakoubok}
+                src={paulinaklubok}
                 className={styles.memberPhoto}
               />
               <Card.Body className={styles.tint}>
