@@ -5,6 +5,13 @@ import Button from "@mui/material/Button";
 import Card from "react-bootstrap/Card";
 import styles from "./styles.module.css";
 
+import { Container, Row, Col } from "react-bootstrap";
+
+import davidschmoys from "../assets/davidschmoys.png";
+import matthewdicks from "../assets/matthewdicks.jpeg";
+import dydineanderson from "../assets/dydineanderson.jpg";
+import rajsuchak from "../assets/rajsuchak.jpg";
+
 export default function Landing() {
   return (
     <React.Fragment>
@@ -50,44 +57,46 @@ export default function Landing() {
           </p>
         </div>
 
-        <img src={""} alt="[David Schmoys]" />
+        <img src={davidschmoys} alt="[David Schmoys]" />
       </div>
 
       <hr />
 
-      <div className={styles.carousel}>
-        <Card className="border-0">
-          <Card.Img variant="top" src={""} height="300px" width="550px" />
-          <Card.Body>
-            <Card.Title className={styles.cardTitle}>
-              You Are Your Best Audience
-            </Card.Title>
-            <Card.Text className={styles.cardSpeaker}>Matthew Dicks</Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Card className="border-0">
-          <Card.Img variant="top" src="" height="300px" width="550px" />
-          <Card.Body>
-            <Card.Title className={styles.cardTitle}>
-              You Are More Than Your Resume
-            </Card.Title>
-            <Card.Text className={styles.cardSpeaker}>Raj Suchak</Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Card className="border-0">
-          <Card.Img variant="top" src="" height="300px" width="550px" />
-          <Card.Body>
-            <Card.Title className={styles.cardTitle}>
-              The Power of Cultural Storytelling
-            </Card.Title>
-            <Card.Text className={styles.cardSpeaker}>
+      <Container>
+        <Row>
+          <Col>
+            <img
+              src={matthewdicks}
+              alt="matthew dicks"
+              className={styles.landingImg}
+            />
+            <p className={styles.memberInfo}>
+              You Are Your Best Audience <br /> Matthew Dicks
+            </p>
+          </Col>
+          <Col>
+            <img
+              src={rajsuchak}
+              alt="raj suchak"
+              className={styles.landingImg}
+            />
+            <p className={styles.memberInfo}>
+              You Are More Than Your Resume <br /> Raj Suchak
+            </p>
+          </Col>
+          <Col>
+            <img
+              src={dydineanderson}
+              alt="dydine anderson"
+              className={styles.landingImg}
+            />
+            <p className={styles.memberInfo}>
+              The Power of Cultural Storytelling <br />
               Dydine Umunyana Anderson
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </div>
+            </p>
+          </Col>
+        </Row>
+      </Container>
 
       <div className={styles.interests}></div>
 

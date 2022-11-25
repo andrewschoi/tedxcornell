@@ -128,7 +128,6 @@ img {
   display: flex;
   flex-direction: column;
   padding: 50px;
-  height: 250px;
   width: 100%;
 }
 
@@ -202,6 +201,19 @@ img {
   text-align: center;
   font-size: 1.3rem;
 }
+
+.landingImg {
+  height: auto;
+  width: 100%;
+  display: block;
+  margin: auto
+}
+
+.speaker {
+  text-align: center;
+
+}
+
 
 
 @media screen and (max-width: 700px) {
