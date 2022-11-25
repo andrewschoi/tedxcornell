@@ -3,9 +3,9 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import Button from "@mui/material/Button";
 import styles from "./styles.module.css";
+import Container from "react-bootstrap/Container";
 
 import andreathia from "../assets/andreathia.jpg";
 import juliakwak from "../assets/juliakwak.jpg";
@@ -86,280 +86,123 @@ export default function OurStory() {
 
       <div className={styles.row}>
         <div style={{ flex: 1 }}></div>
-        <h1>Current Members</h1>
+        <h1 style={{ fontSize: "2.5rem" }}>Current Members</h1>
         <div style={{ flex: 1 }}></div>
       </div>
 
-      <div className={styles.container}>
-        <h1>Speaker Curation</h1>
-      </div>
-
-      <div className={styles.shrink}>
-        <div className={styles.rowContainer}>
-          <div className={styles.memberContainer}>
-            <Card className="border-0">
-              <Card.Img
-                variant="top"
-                src={alinapereyra}
-                className={styles.memberPhoto}
-              />
-              <Card.Body className={styles.tint}>
-                <Card.Title className={styles.memberName}>
-                  Alina Pereyra
-                </Card.Title>
-                <Card.Text className={styles.memberText}>ILR 2023</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className={styles.memberContainer}>
-            <Card className="border-0">
-              <Card.Img
-                variant="top"
-                src={jessischlewitt}
-                className={styles.memberPhoto}
-              />
-              <Card.Body className={styles.tint}>
-                <Card.Title className={styles.memberName}>
-                  Jessi Schlewitt
-                </Card.Title>
-                <Card.Text className={styles.memberText}>HBHS 2024</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className={styles.memberContainer}>
-            <Card className="border-0">
-              <Card.Img
-                variant="top"
-                src={jakezajkowski}
-                className={styles.memberPhoto}
-              />
-              <Card.Body className={styles.tint}>
-                <Card.Title className={styles.memberName}>
-                  Jake Zajkowski
-                </Card.Title>
-                <Card.Text className={styles.memberText}>
-                  Plant Sciences 2026
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
-
-        <div className={styles.rowContainer}>
-          <div className={styles.memberContainer}>
-            <Card className="border-0">
-              <Card.Img
-                variant="top"
-                src={juliakwak}
-                className={styles.memberPhoto}
-              />
-              <Card.Body className={styles.tint}>
-                <Card.Title className={styles.memberName}>
-                  Julia Kwak
-                </Card.Title>
-                <Card.Text className={styles.memberText}>AEM 2025</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className={styles.memberContainer}>
-            <Card className="border-0">
-              <Card.Img
-                variant="top"
-                src={paulinaklubok}
-                className={styles.memberPhoto}
-              />
-              <Card.Body className={styles.tint}>
-                <Card.Title className={styles.memberName}>
-                  Paulina Klubok
-                </Card.Title>
-                <Card.Text className={styles.memberText}>ILR 2023</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className={styles.memberContainer}>
-            <Card className="border-0">
-              <Card.Img
-                variant="top"
-                src={justinyehuda}
-                className={styles.memberPhoto}
-              />
-              <Card.Body className={styles.tint}>
-                <Card.Title className={styles.memberName}>
-                  Justin Yehuda
-                </Card.Title>
-                <Card.Text className={styles.memberText}>ILR 2023</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.container}>
-        <h1>Finance</h1>
-      </div>
-
-      <div className={styles.team}>
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" height="250px" width="200px" />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>Sam Straus</Card.Title>
-              <Card.Text className={styles.memberText}>AEM 2024</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img
-              variant="top"
-              src={andreathia}
-              className={styles.memberPhoto}
+      <Container>
+        <Row className="row mt-5">
+          <Col>
+            <img
+              src={alinapereyra}
+              alt="alina pereyra"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>Andrea Thia</Card.Title>
-              <Card.Text className={styles.memberText}>AEM 2026</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img
-              variant="top"
+            <p className={styles.memberInfo}>Alina Pereyra</p>
+          </Col>
+          <Col>
+            <img
               src={juliathomson}
-              className={styles.memberPhoto}
+              alt="julia thomson"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>
-                Julia Thomson
-              </Card.Title>
-              <Card.Text className={styles.memberText}>AEM 2023</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-
-      <div className={styles.container}>
-        <h1>Design</h1>
-      </div>
-
-      <div className={styles.team}>
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" height="250px" width="200px" />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>
-                Samantha Ivey
-              </Card.Title>
-              <Card.Text className={styles.memberText}>ILR 2024</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img
-              variant="top"
-              src={alicehou}
-              className={styles.memberPhoto}
+            <p className={styles.memberInfo}>Julia Thomson</p>
+          </Col>
+          <Col>
+            <img
+              src={justinyehuda}
+              alt="justin yedhua"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>Alice Hou</Card.Title>
-              <Card.Text className={styles.memberText}>AAP 2026</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
+            <p className={styles.memberInfo}>Justin Yehuda</p>
+          </Col>
+        </Row>
 
-      <div className={styles.container}>
-        <h1>Marketing</h1>
-      </div>
-
-      <div className={styles.team}>
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img
-              variant="top"
+        <Row className="row mt-5">
+          <Col>
+            <img
+              src={juliakwak}
+              alt="julia kwak"
+              className={styles.memberImg}
+            />
+            <p className={styles.memberInfo}>Julia Kwak</p>
+          </Col>
+          <Col>
+            <img
               src={juliaisko}
-              className={styles.memberPhoto}
+              alt="julia isko"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>Julia Isko</Card.Title>
-              <Card.Text className={styles.memberText}>2025</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img
-              variant="top"
-              src={bridgetsantos}
-              className={styles.memberPhoto}
+            <p className={styles.memberInfo}>Julia Isko</p>
+          </Col>
+          <Col>
+            <img src={alicehou} alt="alice hou" className={styles.memberImg} />
+            <p className={styles.memberInfo}>Justin Yehuda</p>
+          </Col>
+        </Row>
+        <Row className="row mt-5">
+          <Col>
+            <img
+              src={andreathia}
+              alt="andrea thia"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>
-                Bridget Santos
-              </Card.Title>
-              <Card.Text className={styles.memberText}>
-                Info. Science 2025
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img
-              variant="top"
+            <p className={styles.memberInfo}>Andrea Thia</p>
+          </Col>
+          <Col>
+            <img
+              src={paulinaklubok}
+              alt="paulina klubok"
+              className={styles.memberImg}
+            />
+            <p className={styles.memberInfo}>Paulina Klubok</p>
+          </Col>
+          <Col>
+            <img
+              src={jakezajkowski}
+              alt="jake zajkowski"
+              className={styles.memberImg}
+            />
+            <p className={styles.memberInfo}>Jake Zajkowski</p>
+          </Col>
+        </Row>
+        <Row className="row mt-5">
+          <Col>
+            <img
+              src={jessischlewitt}
+              alt="jessi schlewitt"
+              className={styles.memberImg}
+            />
+            <p className={styles.memberInfo}>Jessi Schlewitt</p>
+          </Col>
+          <Col>
+            <img
               src={lailarahbari}
-              className={styles.memberPhoto}
+              alt="laila rahbari"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>
-                Laila Rahbari
-              </Card.Title>
-              <Card.Text className={styles.memberText}>ILR 2025</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-
-      <div className={styles.container}>
-        <h1>Software</h1>
-      </div>
-
-      <div className={styles.team}>
-        <div className={styles.memberContainer}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" height="250px" width="200px" />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>
-                Arnav Parashar
-              </Card.Title>
-              <Card.Text className={styles.memberText}>CS 2024</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-
-        <div className={styles.memberContainer}>
-          <Card className={`border-0`}>
-            <Card.Img
-              variant="top"
+            <p className={styles.memberInfo}>Laila Rahbari</p>
+          </Col>
+          <Col>
+            <img
+              src={bridgetsantos}
+              alt="bridget santos"
+              className={styles.memberImg}
+            />
+            <p className={styles.memberInfo}>Bridget Santos</p>
+          </Col>
+        </Row>
+        <Row className="row mt-5">
+          <Col>
+            <img
               src={andrewchoi}
-              className={styles.memberPhoto}
+              alt="andrew choi"
+              className={styles.memberImg}
             />
-            <Card.Body className={styles.tint}>
-              <Card.Title className={styles.memberName}>Andrew Choi</Card.Title>
-              <Card.Text className={styles.memberText}>CS 2025</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-
+            <p className={styles.memberInfo}>Andrew Choi</p>
+          </Col>
+        </Row>
+      </Container>
       <Footer />
     </React.Fragment>
   );
