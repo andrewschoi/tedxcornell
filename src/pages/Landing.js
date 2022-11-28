@@ -63,7 +63,7 @@ export default function Landing() {
       <hr />
 
       <Container>
-        <Row>
+        <Row className="row mt-5 mb-5">
           <Col>
             <img
               src={matthewdicks}

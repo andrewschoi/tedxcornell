@@ -98,6 +98,7 @@ export default function OurStory() {
               alt="alina pereyra"
               className={styles.memberImg}
             />
+
             <p className={styles.memberInfo}>Alina Pereyra</p>
           </Col>
           <Col>
