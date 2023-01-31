@@ -3,11 +3,24 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Alert from "react-bootstrap/Alert";
 import TextField from "@mui/material/TextField";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Card from "react-bootstrap/Card"
 import Button from "@mui/material/Button";
 import styles from "./styles.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMicrophoneAlt } from "@fortawesome/free-solid-svg-icons";
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import "./apply.css"
+
 
 import { db } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
+
+library.add(faMicrophoneAlt)
+
 
 export default function Apply() {
   const [app, setApp] = useState({
@@ -79,195 +92,23 @@ export default function Apply() {
         <div style={{ flex: 1 }}></div>
       </div>
 
-      <div className={styles.container}>
-        <h1>Apply To Be Speaker</h1>
-        <p>
-          Do you have an idea worth spreading? The TEDxCornell stage is the
-          perfect place to share it! Apply today to potentially get selected as
-          a speaker for our next event!
-        </p>
-        <p>
-          We recommend typing your answers in an external text editor and
-          pasting your answers here.
-        </p>
-        <hr />
-
-        <p className={styles.applyText}>Email</p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your email"
-          onChange={(e) =>
-            setApp((prev) => {
-              return {
-                ...prev,
-                email: e.target.value,
-              };
-            })
-          }
-        />
-
-        <p className={styles.applyText}>Name</p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your answer"
-          onChange={(e) =>
-            setApp((prev) => {
-              return {
-                ...prev,
-                name: e.target.value,
-              };
-            })
-          }
-        />
-
-        <p className={styles.applyText}>
-          Location; if selected as a speaker, where would you likely be
-          traveling from?
-        </p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your answer"
-          onChange={(e) =>
-            setApp((prev) => {
-              return {
-                ...prev,
-                location: e.target.value,
-              };
-            })
-          }
-        />
-
-        <p className={styles.applyText}>
-          Tell us about yourself, i.e. your occupation, experience, etc. (250
-          words max).
-        </p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your answer"
-          onChange={(e) =>
-            setApp((prev) => {
-              return {
-                ...prev,
-                info: e.target.value,
-              };
-            })
-          }
-        />
-        {appAlert ? (
-          <Alert variant="danger" className="text-center mt-3 w-25">
-            All fields must be filled out
-          </Alert>
-        ) : null}
-        <Button
-          variant="contained"
-          sx={{
-            display: "block",
-            backgroundColor: "#000000",
-            marginTop: "20px",
-            height: "50px",
-            width: "150px",
-            fontSize: "1.3rem",
-          }}
-          onClick={handleApply}
-        >
-          Apply
-        </Button>
-      </div>
-
-      <div className={styles.container}>
-        <h1>Nominate A Speaker</h1>
-        <p>
-          Know someone fanatastic that could be a good fit for TEDxCornell?
-          Nominate them!
-        </p>
-        <p>
-          We recommend typing your answers in an external text editor and
-          pasting your answers here.
-        </p>
-        <hr />
-
-        <p className={styles.applyText}>Email</p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your email"
-          onChange={(e) =>
-            setNominate((prev) => {
-              return {
-                ...prev,
-                email: e.target.value,
-              };
-            })
-          }
-        />
-
-        <p className={styles.applyText}>Name</p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your answer"
-          onChange={(e) =>
-            setNominate((prev) => {
-              return {
-                ...prev,
-                name: e.target.value,
-              };
-            })
-          }
-        />
-
-        <p className={styles.applyText}>
-          Location; if selected as a speaker, where would they likely be
-          traveling from?
-        </p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your answer"
-          onChange={(e) =>
-            setNominate((prev) => {
-              return {
-                ...prev,
-                location: e.target.value,
-              };
-            })
-          }
-        />
-
-        <p className={styles.applyText}>
-          Tell us about them, i.e. their occupation, experience, etc. (250 words
-          max).
-        </p>
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder="Your answer"
-          onChange={(e) =>
-            setNominate((prev) => {
-              return {
-                ...prev,
-                info: e.target.value,
-              };
-            })
-          }
-        />
-        {nomAlert ? (
-          <Alert variant="danger" className="text-center mt-3 w-25">
-            All fields must be filled out
-          </Alert>
-        ) : null}
-
-        <Button
-          variant="contained"
-          sx={{
-            display: "block",
-            backgroundColor: "#000000",
-            marginTop: "20px",
-            height: "50px",
-            width: "150px",
-            fontSize: "1.3rem",
-          }}
-          onClick={handleNominate}
-        >
-          Nominate
-        </Button>
-      </div>
+      <Container className="my-5">
+        <Row className="justify-content-evenly">
+          <Col md={4} className="py-3">
+            <Card className="apply-card text-center py-3 px-4 h-100 text-black">
+              <Card.Body>
+                <FontAwesomeIcon style={{ fontSize: '45px', color: 'red' }} icon='microphone-alt'></FontAwesomeIcon>
+                <div className="pt-4">
+                  <h4 style={{ color: 'black' }}><b>Apply To Be Speaker</b></h4>
+                  <p className="py-3">Applications to be a speaker at this year's event are now closed.
+                    Check back next fall to apply for next year's event!</p>
+                  <div className="text-danger"><p>Applications are Closed</p></div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
 
       <Footer />
     </React.Fragment>

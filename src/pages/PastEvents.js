@@ -2,7 +2,11 @@ import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 import styles from "./styles.module.css";
+import './pastEvents.css'
+import speakers_2022 from "./2022SpeakerInfo";
+
 
 import { Container, Row, Col } from "react-bootstrap";
 import davidschmoys from "../assets/davidschmoys.png";
@@ -21,6 +25,27 @@ import johnjackson from "../assets/johnjackson.jpg";
 
 import uproot from "../assets/uproot.png";
 import unmuted from "../assets/unmuted.png";
+
+function SpeakerCard(props) {
+  return (
+    <div className={"d-flex py-3 " + (props.onRight ? "flex-row-reverse" : "")} >
+      <div class="card mb-3 speaker-card col-md-10" >
+        <div className={"row no-gutters " + (props.onRight ? "flex-row-reverse" : "") }>
+          <div class="col-md-4">
+            <Image className="rounded h-100" fluid src={props.img}></Image>
+          </div>
+          <div class="col-md-8" >
+            <div class="card-body text-center py-4" >
+              <h4 className="text-center">{props.name}</h4>
+              <h5 class="text-center">{props.speech}</h5>
+              <p class="card-text py-3" style={props.fontSize ? { fontSize: props.fontSize, lineHeight: props.lineHeight } : {}}>{props.speechInfo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function PastEvents() {
   return (
@@ -58,96 +83,16 @@ export default function PastEvents() {
         </Row>
       </Container>
 
-      <Container>
-        <Row className="row mt-5">
-          <Col>
-            <img
-              src={matthewdicks}
-              alt="matthew dicks"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              You Are Your Best Audience <br /> Matthew Dicks
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={rajsuchak}
-              alt="raj suchak"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              You Are More Than Your Resume <br /> Raj Suchak
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={dydineanderson}
-              alt="dydine anderson"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              The Power of Cultural Storytelling <br />
-              Dydine Umunyana Anderson
-            </p>
-          </Col>
-        </Row>
+      <Container className="mt-3">
+
+        {speakers_2022.map((speaker, i) =>
+          <SpeakerCard {...speaker} onRight={i % 2 != 0}></SpeakerCard>
+
+        )}
+
       </Container>
 
-      <Container>
-        <Row className="row mt-5">
-          <Col>
-            <img
-              src={nathanlaurenz}
-              alt="nathan laurenz"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              Save the World: Eat a Bug <br /> Nathan Laurenz
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={karinsternberg}
-              alt="karin sternberg"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              Your Love Stories: The Secret to Happiness in Romantic
-              Relationships <br /> Karin Sternberg
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={carsontaylor}
-              alt="carson taylor"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              How I Learned to Accept My Autism Diagnosis <br />
-              Carson Taylor
-            </p>
-          </Col>
-        </Row>
-      </Container>
 
-      <Container>
-        <Row className="row mt-5">
-          <Col></Col>
-          <Col>
-            <img
-              src={davidschmoys}
-              alt="david schmoys"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              Fairness Through Algorithmic Thinking: Designing Better
-              Congressional Districts and Elections <br /> David Shmoys
-            </p>
-          </Col>
-          <Col></Col>
-        </Row>
-      </Container>
 
       <hr />
       <Container>

@@ -1,0 +1,14 @@
+.speaker-card h4 {
+  font-size: 30px !important;
+  font-weight: bold;
+}
+
+.speaker-card h5 {
+  font-size: 24px !important;
+  text-decoration: underline;
+}
+
+.speaker-card p {
+  font-size: 18px;
+  line-height: 1.8;
+}
