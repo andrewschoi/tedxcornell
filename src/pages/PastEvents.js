@@ -6,6 +6,7 @@ import Image from "react-bootstrap/Image";
 import styles from "./styles.module.css";
 import './pastEvents.css'
 import speakers_2022 from "./2022SpeakerInfo";
+import speakers_2021 from "./2021SpeakerInfo";
 
 
 import { Container, Row, Col } from "react-bootstrap";
@@ -26,25 +27,97 @@ import johnjackson from "../assets/johnjackson.jpg";
 import uproot from "../assets/uproot.png";
 import unmuted from "../assets/unmuted.png";
 
-function SpeakerCard(props) {
+function UnmutedSpeakerCard(props) {
   return (
     <div className={"d-flex py-3 " + (props.onRight ? "flex-row-reverse" : "")} >
-      <div class="card mb-3 speaker-card col-md-10" >
-        <div className={"row no-gutters " + (props.onRight ? "flex-row-reverse" : "") }>
-          <div class="col-md-4">
+      <div className="card mb-3 unmuted-speaker-card col-md-10" >
+        <div className={"row no-gutters " + (props.onRight ? "flex-row-reverse" : "")}>
+          <div className="col-md-4">
             <Image className="rounded h-100" fluid src={props.img}></Image>
           </div>
-          <div class="col-md-8" >
-            <div class="card-body text-center py-4" >
+          <div className="col-md-8" >
+            <div className="card-body text-center py-4" >
               <h4 className="text-center">{props.name}</h4>
-              <h5 class="text-center">{props.speech}</h5>
-              <p class="card-text py-3" style={props.fontSize ? { fontSize: props.fontSize, lineHeight: props.lineHeight } : {}}>{props.speechInfo}</p>
+              <h5 className="text-center">{props.speech}</h5>
+              <p className="card-text py-3" style={props.fontSize ? { fontSize: props.fontSize, lineHeight: props.lineHeight } : {}}>{props.speechInfo}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+}
+
+function UprootSpeakerCard(props) {
+  return (<Col md={3}>
+    <Card className="uproot-speaker-card">
+      <Image fluid src={props.img} />
+      <Card.Body className="text-center">
+        <p>
+          {props.name}
+        </p>
+        <h5>{props.speech}</h5>
+      </Card.Body>
+    </Card>
+  </Col>)
+}
+
+function Uproot(speakers){
+  var cards = []
+  var rowSize = 3
+  var rows =  []
+  for(var i in speakers) {
+    cards.push((<UprootSpeakerCard {...speakers[i]}></UprootSpeakerCard>))
+  }
+  for(var i = 0; i < cards.length; i += rowSize) {
+    var group = cards.slice(i, i + rowSize);
+    rows.push((<Row className="row justify-content-around mt-5">{group}</Row>))
+  }
+  return rows
+}
+
+function SpeakerTest(props) {
+  return (
+    <div className={"d-flex py-3 " + (props.onRight ? "flex-row-reverse" : "")} >
+      <div className="card mb-3 unmuted-speaker-card " >
+        <div className={"row no-gutters " + (props.onRight ? "flex-row-reverse" : "")}>
+          <div className="col-md-4">
+            <Image className="rounded h-100" fluid src={props.img}></Image>
+          </div>
+          <div className="col-md-8" >
+            <div className="card-body text-center py-4" >
+              <h4 className="text-center">{props.name}</h4>
+              <h5 className="text-center">{props.speech}</h5>
+              <p className="card-text py-3" style={props.fontSize ? { fontSize: props.fontSize, lineHeight: props.lineHeight } : {}}>{props.speechInfo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Event(speakerInfo) {
+
+  var rows = []
+  console.log(speakerInfo)
+  for (var i in speakerInfo) {
+    var speaker = speakerInfo[i]
+    var card = <Col md><SpeakerTest {...speaker} onRight={i % 2 != 0}></SpeakerTest></Col>
+    if (rows.length == i / 2) {
+      rows.push([card])
+    }
+    else {
+      rows[Math.floor(i / 2)].push(card)
+    }
+  };
+  console.log(rows)
+
+  return rows.map((row, i) =>
+    <Row>{row}</Row>
+  );
+
+
 }
 
 export default function PastEvents() {
@@ -62,33 +135,38 @@ export default function PastEvents() {
         allowFullScreen
       ></iframe>
 
-      <Container>
-        <Row className="row mt-5">
-          <Col>
-            <h1>Unmuted</h1>
-            <p>
-              For the past two years, we have all had to sit behind our screens,
-              attending meeting after meeting, unable to properly express our
-              ideas and our stories. Join us and our speakers as we are at long
-              last, finally able to become Unmuted.
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={unmuted}
-              alt="[unmuted logo]"
-              className={styles.landingImg}
-            />
-          </Col>
-        </Row>
-      </Container>
+      <div className="pt-5">
+        <Container >
+          <Row className="row">
+            <Col className="unmuted text-center">
+              <h1>Unmuted</h1>
+              <p className="">
+                For the past two years, we have all had to sit behind our screens,
+                attending meeting after meeting, unable to properly express our
+                ideas and our stories. Join us and our speakers as we are at long
+                last, finally able to become Unmuted.
+              </p>
+            </Col>
+            <Col md="4">
+              <Image fluid
+                src={unmuted}
+                alt="[unmuted logo]"
+                className={styles.landingImg}
+              />
+            </Col>
+          </Row>
+
+          {
+            speakers_2022.map((speaker, i) =>
+              <UnmutedSpeakerCard {...speaker} onRight={i % 2 != 0}></UnmutedSpeakerCard>
+
+            )}
+        </Container>
+      </div>
 
       <Container className="mt-3">
 
-        {speakers_2022.map((speaker, i) =>
-          <SpeakerCard {...speaker} onRight={i % 2 != 0}></SpeakerCard>
-
-        )}
+        {/* <Event {...speakers_2022}></Event> */}
 
       </Container>
 
@@ -109,7 +187,7 @@ export default function PastEvents() {
               reflect on what opportunities lie where we least expect them.
             </p>
           </Col>
-          <Col>
+          <Col md>
             <img
               src={uproot}
               alt="[uprooted logo]"
@@ -119,77 +197,11 @@ export default function PastEvents() {
         </Row>
       </Container>
 
-      <Container>
-        <Row className="row mt-5">
-          <Col>
-            <img
-              src={marcelaotalora}
-              alt="marcel aotalora"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              The Healing Power of MDMA through Reconnection <br /> Marcela
-              Ot'Alora
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={danieljames}
-              alt="Daniel James II"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              Why You Should Never Tell a Black Child They Act White <br />{" "}
-              Daniel James II
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={larrywilliams}
-              alt="Larry Williams Jr."
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              The American Dream is a Nightmare for Workers <br />
-              Larry Williams Jr.
-            </p>
-          </Col>
-        </Row>
+      <Container className = "pb-5">
+       <Uproot {...speakers_2021}></Uproot>
       </Container>
 
-      <Container>
-        <Row className="row mt-5">
-          <Col>
-            <img
-              src={ishansharma}
-              alt="Ishan Sharma"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              Democracy & Emerging Surveillance Technology: How We Stop 2030
-              From Becoming 1984. <br /> Ishan Sharma
-            </p>
-          </Col>
-          <Col>
-            <img src={cathoke} alt="Cat Hoke" className={styles.landingImg} />
-            <p className={styles.memberInfo}>
-              Stop Cancelling Yourself <br /> Cat Hoke
-            </p>
-          </Col>
-          <Col>
-            <img
-              src={johnjackson}
-              alt="john jackson"
-              className={styles.landingImg}
-            />
-            <p className={styles.memberInfo}>
-              How I Got Out of a Prison Gang <br />
-              John Jackson
-            </p>
-          </Col>
-        </Row>
-      </Container>
-
+     
       <Footer />
     </React.Fragment>
   );
