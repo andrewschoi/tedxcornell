@@ -6,9 +6,9 @@ h1,h2 {
   font-weight: bold;
 }
 
-h3, h4 {
+/* h3, h4 {
   color: #FFFFFF
-}
+} */
 
 h1 {
   font-size: 2.2em;
@@ -128,7 +128,6 @@ img {
   display: flex;
   flex-direction: column;
   padding: 50px;
-  height: 250px;
   width: 100%;
 }
 
@@ -179,15 +178,6 @@ img {
   margin-right: 50px;
 }
 
-.cardTitle {
-  max-width: 100%;
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-.cardSpeaker {
-  font-size: 1.2em;
-}
 
 .applyText {
   font-size: 1.3em;
@@ -195,82 +185,38 @@ img {
   margin-top: 20px;
 }
 
-.memberName {
-  font-size: 1.2rem;
-  font-weight: bold;
-  max-width: 175px;
-}
-
-.memberText {
-  font-size: 1rem;
-  max-width: 175px;
-}
-
-.memberContainer {
-  margin: 20px;
-}
-
-.tint {
-  background-color: #f6f5f5;
-}
-
-.memberPhoto {
-  height:250px;
-  width:175px
-}
-
 .rowContainer {
   display: flex;
   flex-direction: row;
 }
 
-.shrink {
-  display: flex;
-  flex-direction: row;
-  padding: 50px;
-}
-@media screen and (max-width: 1300px) {
-  .shrink {
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-  }
+.memberImg {
+  height: auto;
+  width: 300px;
+  display: block;
+  margin: auto
 }
 
-@media screen and (max-width: 1000px) {
+.memberInfo {
+  text-align: center;
+  font-size: 1.3rem;
+}
 
-  .carousel {
-    display: flex;
-    flex-direction: column;
-    height: 100%
-  }
-  .featured {
-    display: flex;
-    flex-direction: column;
-    height: 100%
-  }
-  .halfScreen {
-    width: 100%
-  }
+.landingImg {
+  height: auto;
+  width: 100%;
+  display: block;
+  margin: auto
+}
+
+.speaker {
+  text-align: center;
 
 }
+
+
 
 @media screen and (max-width: 700px) {
-  .team {
-    display: flex;
-    flex-direction: column;
-    height: 100%
-  }
-
-  .rowContainer {
-    flex-direction: column;
-  }
-
-  .memberPhoto {
-    width: auto;
-    height: auto;
-  }
-
   .footer {
     flex-direction: column;
   }

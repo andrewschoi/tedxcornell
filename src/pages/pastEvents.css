@@ -1,0 +1,31 @@
+.unmuted h1 {
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.unmuted p {
+      font-size: 20px;
+}
+
+.unmuted-speaker-card h4 {
+  font-size: 30px !important;
+  font-weight: bold;
+}
+
+.unmuted-speaker-card h5 {
+  font-size: 24px !important;
+  text-decoration: underline;
+}
+
+.unmuted-speaker-card p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.uproot-speaker-card h5 {
+    font-weight: bold;
+}
+
+.uproot-speaker-card p {
+  font-style: italic;
+}

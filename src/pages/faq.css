@@ -1,0 +1,23 @@
+.info-header {
+  color: #F24E1E !important;
+  font-size: 2em !important;
+  width: fit-content !important;
+  padding-bottom: 0 !important;
+}
+
+.info-header p {
+  padding-right: 1em;
+}
+
+.info-card hr {
+  color: darkred;
+}
+
+.question-answer {
+  font-size: 18px;
+}
+
+.question-answer h4 {
+
+  font-weight: bold;
+}

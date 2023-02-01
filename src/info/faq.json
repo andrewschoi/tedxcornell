@@ -1,0 +1,88 @@
+[
+  {
+    "title": "Our Events",
+    "color": "#f5e2dc",
+    "info": [
+      {
+        "question": "Can I help organize the event?",
+        "answer": "Our team is fully staffed this semester, but check back next semester! Look out for volunteer opportunities as another way to get involved."
+      },
+      {
+        "question": "When/Where is the event?",
+        "answer": "Our event is April 16th at Kennedy Hall, more information will be posted on our home page soon!"
+      },
+      {
+        "question": "Who sponsors your event?",
+        "answer": "Our sponsors include different schools of Cornell, local businesses, and larger companies as well."
+      },
+      {
+        "question": "What can I get out of coming to a TEDx event?",
+        "answer": "You can learn, be inspired, and get a chance to engage with a community interested in discussing exciting new ideas."
+      },
+      {
+        "question": "Can anyone come to the event?",
+        "answer": "Yes! Stay tuned for more information on ticket sales for our April 16th conference."
+      },
+      {
+        "question": "How can I register for the event?",
+        "answer": "Just buy tickets! Navigate to our home page and use our ticketing link to purchase tickets. If you have trouble doing so, shoot us an email and we’ll help out."
+      },
+      {
+        "question": "Do the events have themes?",
+        "answer": "Yes! This year’s event theme is “Unmuted”. Past themes include “Reframe” and “Uproot”."
+      }
+    ]
+  },
+  {
+    "title": "About Us",
+    "color": "#f3eeec",
+    "info": [
+      {
+        "question": "What is TED?",
+        "answer": "TED is a nonprofit devoted to spreading ideas, usually in the form of short, powerful talks. TED began in 1984 as a conference where Technology, Entertainment, and Design converged, and today covers almost all topics -- from science to business to global issues."
+      },
+      {
+        "question": "What is TEDx?",
+        "answer": "A TEDx event is a local gathering where live TED-like talks and videos previously recorded at TED conferences are shared with the community. TEDx events are fully planned and coordinated independently, on a community-by-community basis."
+      },
+      {
+        "question": "Who runs TEDxCornell?",
+        "answer": "Operating under an official license from TED, a group of student volunteers organize and host each TEDxCornelll event. For more information about the team, check out our Our Story page!"
+      },
+      {
+        "question": "What can I expect at a TEDx event?",
+        "answer": "TEDx events are truly unique in that they bring together a diverse range of speakers and ideas together in one place in the span of a few hours. There’s no platform quite like it."
+      },
+      {
+        "question": "How many TEDxCornell conferences have been held so far?",
+        "answer": "We have held 5 total conferences. To learn more about the history of TEDxCornell, check out the Our Story page!"
+      },
+      {
+        "question": "How are TEDx events sponsored?",
+        "answer": "We are a nonprofit organization sponsored by donations from companies, local businesses, and organizations within Cornell University."
+      }
+    ]
+  },
+  {
+    "title": "Getting Involved",
+    "color": "#f2f1f0",
+    "info": [
+      {
+        "question": "Can anyone apply to be a speaker?",
+        "answer": "Yes! We’re looking for individuals who believe that they have a story, idea, or passion worth sharing."
+      },
+      {
+        "question": "What roles are available on the organizing team?",
+        "answer": "Our organizers work on speaker curation, finance and sponsorship, design and marketing, website design, and more. Check back next semester to see what positions we’re looking for."
+      },
+      {
+        "question": "Are there other ways to get involved?",
+        "answer": "We often look for volunteers willing to help with tasks leading up to the event and on the day of the event. If you would like to meet the team and get a sense of what it’s like being on the organizing side of the event, keep an eye out for our volunteering opportunities."
+      },
+      {
+        "question": "Do you compensate speakers?",
+        "answer": "TEDx events are not allowed to pay speakers; however, we can cover travel and lodging for speakers outside of Ithaca. We do our best to provide all the support we can to our speakers!"
+      }
+    ]
+  }
+]

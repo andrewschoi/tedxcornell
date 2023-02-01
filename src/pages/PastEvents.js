@@ -2,9 +2,123 @@ import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 import styles from "./styles.module.css";
+import './pastEvents.css'
+import speakers_2022 from "./2022SpeakerInfo";
+import speakers_2021 from "./2021SpeakerInfo";
+
+
+import { Container, Row, Col } from "react-bootstrap";
+import davidschmoys from "../assets/davidschmoys.png";
+import matthewdicks from "../assets/matthewdicks.jpeg";
+import dydineanderson from "../assets/dydineanderson.jpg";
+import rajsuchak from "../assets/rajsuchak.jpg";
+import nathanlaurenz from "../assets/nathanlaurenz.jpg";
+import karinsternberg from "../assets/karinsternberg.jpg";
+import carsontaylor from "../assets/carsontaylor.jpg";
+import marcelaotalora from "../assets/marcelaotalora.jpg";
+import danieljames from "../assets/danieljames.jpg";
+import larrywilliams from "../assets/larrywilliams.jpg";
+import ishansharma from "../assets/ishansharma.jpg";
+import cathoke from "../assets/cathoke.jpg";
+import johnjackson from "../assets/johnjackson.jpg";
 
 import uproot from "../assets/uproot.png";
+import unmuted from "../assets/unmuted.png";
+
+function UnmutedSpeakerCard(props) {
+  return (
+    <div className={"d-flex py-3 " + (props.onRight ? "flex-row-reverse" : "")} >
+      <div className="card mb-3 unmuted-speaker-card col-md-10" >
+        <div className={"row no-gutters " + (props.onRight ? "flex-row-reverse" : "")}>
+          <div className="col-md-4">
+            <Image className="rounded h-100" fluid src={props.img}></Image>
+          </div>
+          <div className="col-md-8" >
+            <div className="card-body text-center py-4" >
+              <h4 className="text-center">{props.name}</h4>
+              <h5 className="text-center">{props.speech}</h5>
+              <p className="card-text py-3" style={props.fontSize ? { fontSize: props.fontSize, lineHeight: props.lineHeight } : {}}>{props.speechInfo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function UprootSpeakerCard(props) {
+  return (<Col md={3}>
+    <Card className="uproot-speaker-card">
+      <Image fluid src={props.img} />
+      <Card.Body className="text-center">
+        <p>
+          {props.name}
+        </p>
+        <h5>{props.speech}</h5>
+      </Card.Body>
+    </Card>
+  </Col>)
+}
+
+function Uproot(speakers){
+  var cards = []
+  var rowSize = 3
+  var rows =  []
+  for(var i in speakers) {
+    cards.push((<UprootSpeakerCard {...speakers[i]}></UprootSpeakerCard>))
+  }
+  for(var i = 0; i < cards.length; i += rowSize) {
+    var group = cards.slice(i, i + rowSize);
+    rows.push((<Row className="row justify-content-around mt-5">{group}</Row>))
+  }
+  return rows
+}
+
+function SpeakerTest(props) {
+  return (
+    <div className={"d-flex py-3 " + (props.onRight ? "flex-row-reverse" : "")} >
+      <div className="card mb-3 unmuted-speaker-card " >
+        <div className={"row no-gutters " + (props.onRight ? "flex-row-reverse" : "")}>
+          <div className="col-md-4">
+            <Image className="rounded h-100" fluid src={props.img}></Image>
+          </div>
+          <div className="col-md-8" >
+            <div className="card-body text-center py-4" >
+              <h4 className="text-center">{props.name}</h4>
+              <h5 className="text-center">{props.speech}</h5>
+              <p className="card-text py-3" style={props.fontSize ? { fontSize: props.fontSize, lineHeight: props.lineHeight } : {}}>{props.speechInfo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Event(speakerInfo) {
+
+  var rows = []
+  console.log(speakerInfo)
+  for (var i in speakerInfo) {
+    var speaker = speakerInfo[i]
+    var card = <Col md><SpeakerTest {...speaker} onRight={i % 2 != 0}></SpeakerTest></Col>
+    if (rows.length == i / 2) {
+      rows.push([card])
+    }
+    else {
+      rows[Math.floor(i / 2)].push(card)
+    }
+  };
+  console.log(rows)
+
+  return rows.map((row, i) =>
+    <Row>{row}</Row>
+  );
+
+
+}
 
 export default function PastEvents() {
   return (
@@ -21,109 +135,47 @@ export default function PastEvents() {
         allowFullScreen
       ></iframe>
 
-      <div className={styles.event}>
-        <div className={styles.row}>
-          <div className={styles.halfScreen}>
-            <h1>Unmuted</h1>
-            <p>
-              For the past two years, we have all had to sit behind our screens,
-              attending meeting after meeting, unable to properly express our
-              ideas and our stories. Join us and our speakers as we are at long
-              last, finally able to become Unmuted.
-            </p>
-          </div>
-          <img src={uproot} alt="[Unmuted logo]" className={styles.eventLogo} />
-        </div>
+      <div className="pt-5">
+        <Container >
+          <Row className="row">
+            <Col className="unmuted text-center">
+              <h1>Unmuted</h1>
+              <p className="">
+                For the past two years, we have all had to sit behind our screens,
+                attending meeting after meeting, unable to properly express our
+                ideas and our stories. Join us and our speakers as we are at long
+                last, finally able to become Unmuted.
+              </p>
+            </Col>
+            <Col md="4">
+              <Image fluid
+                src={unmuted}
+                alt="[unmuted logo]"
+                className={styles.landingImg}
+              />
+            </Col>
+          </Row>
 
-        <hr />
+          {
+            speakers_2022.map((speaker, i) =>
+              <UnmutedSpeakerCard {...speaker} onRight={i % 2 != 0}></UnmutedSpeakerCard>
+
+            )}
+        </Container>
       </div>
 
-      <div className={styles.carousel}>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                You Are Your Best Audience
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Matthew Dicks
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                You Are More Than Your Resume
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>Raj Suchak</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                The Power of Cultural Storytelling
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Dydine Umunyana Anderson
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
+      <Container className="mt-3">
 
-      <div className={styles.carousel}>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                Save the World: Eat a Bug
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Nathan Laurenz
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
+        {/* <Event {...speakers_2022}></Event> */}
 
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                Your Love Stories
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Karin Sternberg
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                Accepting My Autism Diagnosis
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Carson Taylor
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
+      </Container>
 
-      <div className={styles.event}>
-        <div className={styles.row}>
-          <div className={styles.halfScreen}>
+
+
+      <hr />
+      <Container>
+        <Row className="row mt-5">
+          <Col>
             <h1>Uproot</h1>
             <p>
               In the midst of the pandemic, we were forced to introspect and
@@ -134,96 +186,22 @@ export default function PastEvents() {
               dug deep to share their personal stories, and inspired us to
               reflect on what opportunities lie where we least expect them.
             </p>
-          </div>
-          <img
-            src={uproot}
-            alt="[Uprooted logo]"
-            className={styles.eventLogo}
-          />
-        </div>
+          </Col>
+          <Col md>
+            <img
+              src={uproot}
+              alt="[uprooted logo]"
+              className={styles.landingImg}
+            />
+          </Col>
+        </Row>
+      </Container>
 
-        <hr />
-      </div>
+      <Container className = "pb-5">
+       <Uproot {...speakers_2021}></Uproot>
+      </Container>
 
-      <div className={styles.carousel}>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                Democracy and Emerging Surveillance Technology
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>Ishan Sharma</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                Stop Cancelling Yourself
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>Cat Hoke</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                How I Got Out of a Prison Gang
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>John Jackson</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-
-      <div className={styles.carousel}>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                The Healing Power of MDMA through Reconnection
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Marcela Ot'Alora
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                Why You Should Never Tell a Black Child They Act White
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Daniel James II
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className={styles.eventCard}>
-          <Card className="border-0">
-            <Card.Img variant="top" src="" className={styles.eventImage} />
-            <Card.Body>
-              <Card.Title className={styles.cardTitle}>
-                The American Dream is a Nightmare for Workers
-              </Card.Title>
-              <Card.Text className={styles.cardSpeaker}>
-                Larry Williams Jr.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-
+     
       <Footer />
     </React.Fragment>
   );
