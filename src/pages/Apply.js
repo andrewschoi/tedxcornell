@@ -22,6 +22,60 @@ import { collection, addDoc } from "firebase/firestore";
 library.add(faMicrophoneAlt)
 
 
+
+function Question(props) {
+  return (<div>
+    <p className={styles.applyText}>
+      {props.question}
+    </p><TextField
+      className="w-100"
+      placeholder={props.placeholder}
+      onChange={(e) =>
+        props.setFunction((prev) => {
+          var info = { ...prev }
+          info[props.type] = e.target.value
+          return info;
+        })
+      }
+    />
+  </div>);
+}
+
+function Form(props) {
+  return (<div className="py-3">
+    <h1>{props.title}</h1>
+    <p>
+      {props.info}
+    </p>
+    <i>
+      We recommend typing your answers in an external text editor and
+      pasting your answers here.
+    </i>
+    <hr />
+
+    {props.questions.map((info) =>
+      <Question setFunction={props.setFunction} {...info}></Question>
+    )}
+
+    {props.alert ? (
+      <Alert variant="danger" className="text-center mt-3 w-25">
+        All fields must be filled out
+      </Alert>
+    ) : null}
+    <Button
+      variant="contained"
+      sx={{
+        backgroundColor: "#000000",
+        fontSize: "1.3rem",
+      }}
+      className="mt-3"
+      onClick={props.handleFunction}
+    >
+      {props.button}
+    </Button>
+  </div>);
+}
+
 export default function Apply() {
   const [app, setApp] = useState({
     email: "",
@@ -36,6 +90,7 @@ export default function Apply() {
     location: "",
     info: "",
   });
+
 
   const [appAlert, setAppAlert] = useState(false);
   const [nomAlert, setNomAlert] = useState(false);
@@ -81,6 +136,76 @@ export default function Apply() {
     }
   };
 
+  const speakerApplication = {
+    title: "Apply To Be Speaker",
+    info: `Do you have an idea worth spreading? The TEDxCornell stage is the
+            perfect place to share it! Apply today to potentially get selected as
+            a speaker for our next event!`,
+    setFunction: setApp,
+    handleFunction: handleApply,
+    alert: appAlert,
+    button: 'Apply!',
+    questions: [{
+      question: 'Email',
+      type: 'email',
+      placeholder: 'Your email'
+    },
+    {
+      question: 'Name',
+      type: 'name',
+      placeholder: 'Your name'
+    },
+    {
+      question: `Location; if selected as a speaker, where would you likely be
+            traveling from?`,
+      type: 'location',
+      placeholder: 'Your answer'
+    },
+    {
+      question: `Tell us about yourself, i.e. your occupation, experience, etc. (250
+            words max).`,
+      type: 'info',
+      placeholder: 'Your answer'
+
+    }
+    ]
+  }
+
+  const nomination = {
+    title: "Nominate A Speaker",
+    info: `Know someone fanatastic that could be a good fit for TEDxCornell?
+            Nominate them!`,
+    setFunction: setNominate,
+    handleFunction: handleNominate,
+    alert: nomAlert,
+    button: 'Nominate!',
+    questions: [{
+      question: 'Email',
+      type: 'email',
+      placeholder: 'Your email'
+    },
+    {
+      question: 'Name',
+      type: 'name',
+      placeholder: 'Your answer'
+    },
+    {
+      question: `Location; if selected as a speaker, where would they likely be
+            traveling from?`,
+      type: 'location',
+      placeholder: 'Your answer'
+    },
+    {
+      question: `Tell us about them, i.e. their occupation, experience, etc. (250 words
+            max).`,
+      type: 'info',
+      placeholder: 'Your answer'
+
+    }
+    ]
+  }
+
+  const acceptingSpeakers = false
   return (
     <React.Fragment>
       <Nav />
@@ -108,8 +233,14 @@ export default function Apply() {
             </Card>
           </Col>
         </Row>
+        {acceptingSpeakers &&
+          <div>
+            <Form {...speakerApplication} ></Form>
+            <hr></hr>
+            <Form {...nomination}></Form>
+          </div>
+        }
       </Container>
-
       <Footer />
     </React.Fragment>
   );
